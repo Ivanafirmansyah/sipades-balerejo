@@ -1,0 +1,38 @@
+/* =========================================================
+   SIPADES — gaya grafik shadcn/ui (Tailwind v4)
+   Sengaja TANPA preflight (reset CSS) agar tidak merusak tampilan Bootstrap,
+   dan hanya memindai komponen grafik React (bukan file Blade).
+   ========================================================= */
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities) source(none);
+@source "../js/components";
+@source "../js/grafik";
+
+/* Token warna shadcn, disesuaikan tema desa (biru tua + kuning, tanpa gradasi) */
+:root {
+    --background: #ffffff;
+    --foreground: #1e293b;
+    --muted: #eff4fb;
+    --muted-foreground: #64748b;
+    --border: #dbe2ea;
+    --chart-1: #0f3a7a;   /* biru tua */
+    --chart-2: #fbbf24;   /* kuning */
+    --chart-3: #1d5bb0;   /* biru */
+    --chart-4: #f59e0b;   /* kuning tua */
+    --chart-5: #7ea3d9;   /* biru muda */
+    --chart-6: #0a2a5c;   /* biru gelap */
+}
+
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-border: var(--border);
+    --font-mono: ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+/* Recharts: teks mengikuti font situs */
+[data-slot="chart"] { font-family: inherit; }
+[data-slot="chart"] svg { overflow: visible; }
